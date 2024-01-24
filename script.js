@@ -1,3 +1,14 @@
+const toggleBtn = document.getElementsByClassName("nav-toggle-btn")[0];
+const navList = document.getElementsByClassName("nav")[0];
+
+toggleBtn.addEventListener("click", () => {
+  if (navList.style.display === "flex") {
+    navList.style.display = "none";
+  } else {
+    navList.style.display = "flex";
+  }
+});
+
 const leftArrow = document.getElementById("left-arrow");
 const rightArrow = document.getElementById("right-arrow");
 
