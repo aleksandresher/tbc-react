@@ -11,9 +11,11 @@ toggleBtn.addEventListener("click", () => {
 
 const leftArrow = document.getElementById("left-arrow");
 const rightArrow = document.getElementById("right-arrow");
+const slideWrapper = document.querySelector(".content_inner_slider");
 
 const slides = document.getElementsByClassName("slide");
 const totalSlides = slides.length;
+console.log(totalSlides);
 let currentSlide = 0;
 
 function updateSlidePosition() {
