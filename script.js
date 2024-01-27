@@ -1,12 +1,37 @@
-const toggleBtn = document.getElementsByClassName("nav-toggle-btn")[0];
-const navList = document.getElementsByClassName("nav")[0];
+const navToggleBtn = document.querySelector(".nav-toggle-btn");
+const nav = document.querySelector(".nav-list");
+const navLinks = document.querySelectorAll(".nav-link");
+navToggleBtn.addEventListener("click", () => {
+  const visibility = nav.getAttribute("data-visible");
+  document.body.classList.toggle("stop-scrolling");
 
-toggleBtn.addEventListener("click", () => {
-  if (navList.style.display === "flex") {
-    navList.style.display = "none";
+  if (visibility === "false") {
+    nav.setAttribute("data-visible", true);
+    navToggleBtn.setAttribute("aria-expanded", true);
   } else {
-    navList.style.display = "flex";
+    nav.setAttribute("data-visible", false);
+    navToggleBtn.setAttribute("aria-expanded", false);
   }
+
+  navLinks.forEach((element) => {
+    element.addEventListener("click", () => {
+      nav.setAttribute("data-visible", false);
+      navToggleBtn.setAttribute("aria-expanded", false);
+      document.body.classList.remove("stop-scrolling");
+    });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.querySelector(".nav-toggle-btn");
+  const line1 = document.querySelector(".line1");
+  const line3 = document.querySelector(".line3");
+
+  container.addEventListener("click", () => {
+    container.classList.toggle("active");
+    line1.classList.toggle("active");
+    line3.classList.toggle("active");
+  });
 });
 
 const slides = document.querySelectorAll(".slide");
@@ -44,7 +69,7 @@ function prevSlide() {
   updateSlidePosition();
 }
 
-intervalId = setInterval(nextSlide, 3000);
+intervalId = setInterval(nextSlide, 2500);
 
 document
   .querySelector(".carousel-wrapper")
@@ -53,7 +78,7 @@ document
   });
 
 document.querySelector(".carousel-wrapper").addEventListener("mouseout", () => {
-  intervalId = setInterval(nextSlide, 3000);
+  intervalId = setInterval(nextSlide, 2500);
 });
 
 dots.forEach((dot, index) => {

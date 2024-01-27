@@ -21,23 +21,35 @@
             <p class="logo-text">აკადემია</p>
           </div>
         </a>
-        <div class="nav-toggle-btn">
-          <div class="btn-first-box"></div>
-          <div class="btn-second-box"></div>
-          <div class="btn-third-box"></div>
+        <div
+          class="nav-toggle-btn"
+          aria-controls="nav"
+          aria-expanded="false"
+          aria-label="mobile navigation toggle"
+        >
+          <div class="line line1 small"></div>
+          <div class="line line2"></div>
+          <div class="line line3 small"></div>
         </div>
         <nav class="navigation">
-          <ul class="nav-list" role="list">
-            <li class="nav-toggle-btn">X</li>
-            <li><a href="https://www.tbcacademy.ge/">მთავარი</a></li>
-            <li><a href="https://www.tbcacademy.ge/it-academy">TBC IT</a></li>
+          <ul class="nav-list" role="list" data-visible="false">
             <li>
-              <a href="https://www.tbcacademy.ge/usaid" class="active"
+              <a href="https://www.tbcacademy.ge/" class="nav-link">მთავარი</a>
+            </li>
+            <li>
+              <a href="https://www.tbcacademy.ge/it-academy" class="nav-link"
+                >TBC IT</a
+              >
+            </li>
+            <li>
+              <a href="https://www.tbcacademy.ge/usaid" class="nav-link active"
                 >TBC x USAID</a
               >
             </li>
             <li>
-              <a href="https://www.tbcacademy.ge/risks-academy">რისკები</a>
+              <a href="https://www.tbcacademy.ge/risks-academy" class="nav-link"
+                >რისკები</a
+              >
             </li>
           </ul>
         </nav>
@@ -212,36 +224,39 @@
     </section>
 
     <section class="carousel-wrapper">
-      <button>
-        <img src="/assets/left.svg" class="slider-svg" id="left-arrow" />
-      </button>
+      <span class="carousel-header"> <h2>პროექტის პარტნიორები</h2></span>
 
-      <div class="content_inner_slider">
-        <div class="slide">
-          <img src="/assets/usaid.png" class="partners-img" />
-          <img src="/assets/space.png" class="partners-img" />
-          <img src="/assets/tianeti.png" class="partners-img" />
+      <div class="carousel-slides-wrapper">
+        <button>
+          <img src="/assets/left.svg" class="slider-svg" id="left-arrow" />
+        </button>
+
+        <div class="content_inner_slider">
+          <div class="slide">
+            <img src="/assets/usaid.png" class="partners-img" />
+            <img src="/assets/space.png" class="partners-img" />
+            <img src="/assets/tianeti.png" class="partners-img" />
+          </div>
+          <div class="slide">
+            <img src="/assets/tegeta.png" class="partners-img" />
+            <img src="/assets/spectre.png" class="partners-img" />
+            <img src="/assets/tbc-lizing.png" class="partners-img" />
+          </div>
+          <div class="slide single-item">
+            <img src="/assets/gadaxdebi.png" class="partners-img" />
+          </div>
         </div>
-        <div class="slide">
-          <img src="/assets/tegeta.png" class="partners-img" />
-          <img src="/assets/spectre.png" class="partners-img" />
-          <img src="/assets/tbc-lizing.png" class="partners-img" />
-        </div>
-        <div class="slide single-item">
-          <img src="/assets/gadaxdebi.png" class="partners-img" />
-        </div>
+
+        <button>
+          <img src="/assets/right.svg" class="slider-svg" id="right-arrow" />
+        </button>
+        <ul class="dots">
+          <li class="dot" data-slide-index="0"></li>
+          <li class="dot" data-slide-index="1"></li>
+          <li class="dot" data-slide-index="2"></li>
+        </ul>
       </div>
-
-      <button>
-        <img src="/assets/right.svg" class="slider-svg" id="right-arrow" />
-      </button>
     </section>
-
-    <ul class="dots">
-      <li class="dot" data-slide-index="0"></li>
-      <li class="dot" data-slide-index="1"></li>
-      <li class="dot" data-slide-index="2"></li>
-    </ul>
 
     <section class="accordion">
       <h2 class="accordion-header">ხშირად დასმული კითხვები</h2>
