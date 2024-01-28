@@ -43,7 +43,7 @@ header {
   width: 26px;
 }
 
-.container.active {
+.nav-toggle-btn.active {
   transform: rotate(-45deg);
 }
 
