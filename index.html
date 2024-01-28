@@ -372,13 +372,18 @@
           /></a>
         </div>
         <p class="rights">© 2023 ყველა უფლება დაცულია</p>
-        <p class="footer-rules">წესები და პირობები</p>
+        <p
+          class="footer-rules"
+          id="footer-rules-toggle"
+          aria-controls="rules"
+          aria-expanded="false"
+        >
+          წესები და პირობები
+        </p>
 
         <button class="footer-btn">მოგვწერეთ</button>
-        <div class="rules">
-          <div class="rules-close-x">
-            <svg></svg>
-          </div>
+        <div class="rules" data-visible="false">
+          <div class="rules-close-x">x</div>
           <h6>წესები და პირობები</h6>
           <p>
             წინამდებარე ვებ-გვერდის გამოყენება რეგულირდება სს „თიბისი ბანკის“
@@ -549,7 +554,8 @@
             უფლებას, ან ლიცენზიას წინამდებარე მუხლში ჩამოთვლილი ბანკის
             ინტელექტუალური საკუთრების გამოყენებაზე.
           </p>
-          <button class="rules-close-btn">დახურვა</button>
+
+          <button class="rules-close-x rules-close-btn">დახურვა</button>
         </div>
       </div>
     </footer>

@@ -264,6 +264,9 @@ h1 {
   .image-text-wrapper {
     display: flex;
   }
+  h1 {
+    width: 100%;
+  }
 }
 @media screen and (max-width: 1800px) {
   .image-text-wrapper {
@@ -668,6 +671,8 @@ button {
 @media screen and (max-width: 440px) {
   .accordion {
     display: grid;
+    width: 100%;
+    justify-items: center;
     padding-top: 30px;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(5, auto);
@@ -768,6 +773,7 @@ footer {
   height: 39px;
   cursor: pointer;
 }
+
 .rules {
   display: flex;
   flex-direction: column;
@@ -775,14 +781,13 @@ footer {
   padding: 50px;
   align-items: center;
   gap: 15px;
-  height: 100%;
+  height: max-content;
   position: absolute;
   width: 40vw;
   right: 0;
   top: 0;
-  bottom: 0;
+
   z-index: 30000;
-  overflow-y: scroll;
 }
 .rules::-webkit-scrollbar {
   display: none;
@@ -814,6 +819,16 @@ h6 {
 .rules-close-btn:hover {
   background-color: rgb(0, 163, 224);
   color: #ccc;
+}
+.rules.active {
+  display: none;
+}
+
+.rules[data-visible="true"] {
+  transform: translateX(0%);
+}
+.rules[data-visible="false"] {
+  display: none;
 }
 
 @media screen and (max-width: 600px) {

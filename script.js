@@ -114,3 +114,24 @@ faqs.forEach((listElement) => {
     }
   });
 });
+
+const rules = document.querySelector(".rules");
+const rulesBtns = document.querySelectorAll(".rules-close-x");
+
+rulesBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    rules.setAttribute("data-visible", false);
+  });
+});
+
+const rulesMain = document.getElementById("footer-rules-toggle");
+
+rulesMain.addEventListener("click", () => {
+  const visibility = rules.getAttribute("data-visible");
+  console.log(visibility);
+  if (visibility === "false") {
+    rules.setAttribute("data-visible", true);
+  } else {
+    rules.setAttribute("data-visible", false);
+  }
+});
