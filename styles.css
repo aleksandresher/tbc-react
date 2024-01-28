@@ -315,7 +315,7 @@ h2 {
 
 @media screen and (max-width: 440px) {
   .programm-description {
-    width: 90%;
+    width: 80%;
   }
   h1 {
     font-size: 24px;
@@ -781,11 +781,13 @@ footer {
   padding: 50px;
   align-items: center;
   gap: 15px;
-  height: max-content;
-  position: absolute;
+
   width: 40vw;
   right: 0;
   top: 0;
+  overflow-y: scroll;
+  height: 100%;
+  position: fixed;
 
   z-index: 30000;
 }
@@ -797,12 +799,22 @@ h6 {
   font-size: 20px;
   color: #918e8e;
   align-self: flex-start;
+  padding-bottom: 20px;
 }
 
 .rules p {
   font-size: 14px;
   font-family: TBC;
+  line-height: 20px;
   color: rgb(173, 169, 169);
+}
+.rules-close-x-img {
+  width: 24px;
+  height: 24px;
+}
+.rules-close-x {
+  align-self: flex-end;
+  cursor: pointer;
 }
 .rules-close-btn {
   width: 100%;
@@ -815,6 +827,8 @@ h6 {
   font-weight: 500;
   transition: all 0.4s ease;
   cursor: pointer;
+  margin-bottom: 200px;
+  margin-top: 20px;
 }
 .rules-close-btn:hover {
   background-color: rgb(0, 163, 224);
@@ -829,6 +843,10 @@ h6 {
 }
 .rules[data-visible="false"] {
   display: none;
+  top: 0;
+}
+body.body-as-background {
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 600px) {
@@ -854,5 +872,9 @@ h6 {
   }
   .footer-rules {
     grid-area: e;
+  }
+  .rules {
+    width: 75vw;
+    padding: 20px;
   }
 }

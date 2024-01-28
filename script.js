@@ -131,7 +131,18 @@ rulesMain.addEventListener("click", () => {
   console.log(visibility);
   if (visibility === "false") {
     rules.setAttribute("data-visible", true);
+    document.body.classList.add("body-as-background");
   } else {
     rules.setAttribute("data-visible", false);
+    document.body.classList.remove("body-as-background");
+  }
+});
+
+document.addEventListener("click", (event) => {
+  const isClickInsideRules =
+    rules.contains(event.target) || rulesMain.contains(event.target);
+  if (!isClickInsideRules) {
+    rules.setAttribute("data-visible", "false");
+    document.body.classList.remove("body-as-background");
   }
 });
