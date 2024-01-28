@@ -1,9 +1,17 @@
 const navToggleBtn = document.querySelector(".nav-toggle-btn");
 const nav = document.querySelector(".nav-list");
 const navLinks = document.querySelectorAll(".nav-link");
+const line1 = document.querySelector(".line1");
+const line3 = document.querySelector(".line3");
+const program = document.querySelector(".programm-description-wrapper");
+const imgContainer = document.querySelector(".img-container");
+const header = document.querySelector(".header");
+
 navToggleBtn.addEventListener("click", () => {
   const visibility = nav.getAttribute("data-visible");
   document.body.classList.toggle("stop-scrolling");
+  program.classList.toggle("as-background");
+  imgContainer.classList.toggle("as-background");
 
   if (visibility === "false") {
     nav.setAttribute("data-visible", true);
@@ -16,19 +24,42 @@ navToggleBtn.addEventListener("click", () => {
   navLinks.forEach((element) => {
     element.addEventListener("click", () => {
       nav.setAttribute("data-visible", false);
+
       navToggleBtn.setAttribute("aria-expanded", false);
       document.body.classList.remove("stop-scrolling");
     });
   });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.querySelector(".nav-toggle-btn");
-  const line1 = document.querySelector(".line1");
-  const line3 = document.querySelector(".line3");
+let prevScrollpos = window.scrollY;
+let threshold = 80;
 
-  container.addEventListener("click", () => {
-    container.classList.toggle("active");
+window.onscroll = function () {
+  var currentScrollPos = window.scrollY;
+  if (Math.abs(prevScrollpos - currentScrollPos) > threshold) {
+    if (prevScrollpos > currentScrollPos) {
+      header.style.top = "0";
+    } else {
+      header.style.top = "-80px";
+    }
+    prevScrollpos = currentScrollPos;
+  }
+};
+document.addEventListener("click", (event) => {
+  const isClickInsideNav =
+    navToggleBtn.contains(event.target) || nav.contains(event.target);
+  if (!isClickInsideNav && nav.getAttribute("data-visible") === "true") {
+    nav.setAttribute("data-visible", "false");
+
+    navToggleBtn.classList.toggle("active");
+    document.body.classList.remove("stop-scrolling");
+    line1.classList.toggle("active");
+    line3.classList.toggle("active");
+  }
+});
+document.addEventListener("DOMContentLoaded", () => {
+  navToggleBtn.addEventListener("click", () => {
+    navToggleBtn.classList.toggle("active");
     line1.classList.toggle("active");
     line3.classList.toggle("active");
   });
