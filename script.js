@@ -16,9 +16,11 @@ navToggleBtn.addEventListener("click", () => {
   if (visibility === "false") {
     nav.setAttribute("data-visible", true);
     navToggleBtn.setAttribute("aria-expanded", true);
+    header.style.opacity = "unset";
   } else {
     nav.setAttribute("data-visible", false);
     navToggleBtn.setAttribute("aria-expanded", false);
+    header.style.opacity = 0.9;
   }
 
   navLinks.forEach((element) => {
@@ -34,8 +36,9 @@ navToggleBtn.addEventListener("click", () => {
 let prevScrollpos = window.scrollY;
 let threshold = 80;
 
-window.onscroll = function () {
+function handleScroll() {
   var currentScrollPos = window.scrollY;
+
   if (Math.abs(prevScrollpos - currentScrollPos) > threshold) {
     if (prevScrollpos > currentScrollPos) {
       header.style.top = "0";
@@ -44,13 +47,28 @@ window.onscroll = function () {
     }
     prevScrollpos = currentScrollPos;
   }
-};
+}
+
+function isMobile() {
+  return window.innerWidth <= 768;
+}
+
+window.addEventListener("scroll", function () {
+  if (isMobile()) {
+    handleScroll();
+  } else {
+    header.style.top = "0";
+  }
+});
+
 document.addEventListener("click", (event) => {
   const isClickInsideNav =
     navToggleBtn.contains(event.target) || nav.contains(event.target);
   if (!isClickInsideNav && nav.getAttribute("data-visible") === "true") {
     nav.setAttribute("data-visible", "false");
-
+    program.classList.toggle("as-background");
+    imgContainer.classList.toggle("as-background");
+    header.style.opacity = 0.9;
     navToggleBtn.classList.toggle("active");
     document.body.classList.remove("stop-scrolling");
     line1.classList.toggle("active");
