@@ -172,7 +172,7 @@ nav {
   color: #fff;
   font-weight: 400;
   letter-spacing: 1px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "TBC-regular";
 }
 .logo-x {
   font-size: 20px;
@@ -193,6 +193,7 @@ a {
   list-style: none;
   text-decoration: none;
   color: #fff;
+  font-family: "TBC-regular";
 }
 a:hover,
 a:active {
@@ -595,8 +596,13 @@ button {
 }
 .accordion-all-question {
   color: rgb(0, 174, 243);
-  font-size: 16px;
+  font-size: 20px;
   grid-area: allquestion;
+  font-family: "TBC-regular";
+  transition: color 0.4s ease;
+}
+.accordion-all-question:hover {
+  color: #aaa;
 }
 .faq {
   width: 100%;
@@ -653,7 +659,7 @@ button {
   font-size: 24px;
   color: rgb(48, 184, 233);
   font-weight: 500;
-  font-family: "Rubik", sans-serif;
+  font-family: "TBC-regular";
 }
 
 .faq-header a:hover {
@@ -777,6 +783,7 @@ footer {
   color: #fff;
   padding: 8px 20px;
   font-size: 16px;
+  font-family: "TBC-regular";
   border-radius: 8px;
   transition: all 0.4s ease-in;
 }
